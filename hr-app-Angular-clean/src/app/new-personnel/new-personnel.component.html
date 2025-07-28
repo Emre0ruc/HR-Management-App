@@ -1,0 +1,38 @@
+<div class="backdrop" (click)="onCancelAdding()"></div>
+<dialog open>
+  <h2>Add New Personnel</h2>
+  <form (ngSubmit)="onShowConfirmation()"> 
+    <p>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" [(ngModel)]="enteredPersonnel.name" />
+    </p>
+
+    <p>
+      <label for="surname">Surname</label>
+      <input type="text" id="surname" name="surname" [(ngModel)]="enteredPersonnel.surname" />
+    </p>
+
+    <p>
+      <label for="id">Personnel ID</label>
+      <input type="text" id="id" name="id" [(ngModel)]="enteredPersonnel.id" />
+    </p>
+
+    <p> 
+        <label  for="salary">Salary</label>
+        <input type="number" id="salary" name="salary" [(ngModel)]="enteredPersonnel.salary"/>
+    </p>
+    <p class="actions">
+      <button type="button" (click)="onCancelAdding()">Cancel</button> 
+      <button type="submit" >Create</button> 
+    </p>
+  </form>
+</dialog>
+
+<div class="backdrop2">
+  @if(isShowConfirmation){
+    <app-confirmation (cancelConfirmation)="onCancelConfirmation()" (confirmConfirmation)="onConfirmConfirmation()"></app-confirmation>  
+  }
+</div>
+
+
+

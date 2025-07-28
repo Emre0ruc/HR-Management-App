@@ -1,0 +1,10 @@
+<div class="search-container">
+    <input type="text" [(ngModel)]="searchText" placeholder="Search personnel..." class="search-box" />
+    <ul class="list">
+        <li *ngFor="let user of filteredPersonnel()">
+            @if(searchText !== ""){
+                <personnel-app [test_personnel]="user" (select)="onSelectPersonnel($event)" />
+            } 
+        </li>
+    </ul>   
+</div>

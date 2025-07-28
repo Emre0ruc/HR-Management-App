@@ -1,0 +1,29 @@
+<div class="backdrop" (click)="onCancelRemoving()"></div>
+<dialog open>
+  <h2>Remove Personnel</h2>
+  <form (ngSubmit)="onShowConfirmationBox()"> 
+    <p>
+      <label for="id">ID</label>
+      <input type="text" id="id" name="id" [(ngModel)]="enteredId" />
+    </p>
+    <p class="actions">
+      <button type="button" (click)="onCancelRemoving()">Cancel</button> 
+      <button type="submit" >Confirm</button>
+    </p>
+  </form>
+  <p></p>
+</dialog>
+
+<div class="backdrop2">
+  @if(isShowConfirmation === true){
+    <app-confirmation (cancelConfirmation)="onCancelRemoveConfirmation()" (confirmConfirmation)="onConfirmRemoveConfirmation()"></app-confirmation>  
+  }
+</div>
+
+<div class="backdrop3">
+  @if(isShowWarning){
+    <app-warning-box (okayWarning)="onOkayWarning()" [message]="messageWarningBox" [explanation]="explanationWarningBox"></app-warning-box>
+  }
+</div>
+
+

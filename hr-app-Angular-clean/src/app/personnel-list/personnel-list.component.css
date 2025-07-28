@@ -1,0 +1,26 @@
+.list{
+    list-style: none;
+}
+
+li{
+    margin: 0.4rem;
+}
+
+.search-box {
+  padding: 0.5rem 1rem;
+  margin-right: 2rem;
+  width: 100%;
+  max-width: 400px;
+  border: 2px solid #5a3ec2;
+  border-radius: 25px;
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.search-box:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+

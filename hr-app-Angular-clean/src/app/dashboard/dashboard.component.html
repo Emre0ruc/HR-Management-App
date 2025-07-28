@@ -1,0 +1,67 @@
+<header-app></header-app>
+
+<main class="dashboard">
+  <aside class="control-panel">
+    <button class="btn add" (click)="onAddPersonnel()">➕ Add</button>
+    <button class="btn remove" (click)="onRemovePersonnel()">➖ Remove</button>
+    <button class="btn update" (click)="onUpdatePersonnel()">🔄️ Update</button>
+  </aside>
+
+  <section class="content-panel">
+    <app-personnel-list (select2)="onSelectPersonnel2($event)"></app-personnel-list>
+    @if (personnelDetailsapp && isShowPersonnelDetails) {
+      <app-personnel-details 
+        [personnelDetails]="personnelDetailsapp" 
+        [keepShowingPeronnelDetails]="keepShowingPersonnelDetails">
+      </app-personnel-details>
+    }
+  </section>
+</main>
+
+<section class="overlay">
+  @if(isAddingPersonnel){
+    <app-new-personnel (cancel)="onCancelAdding()" (submit)="onSubmitPersonnel($event)"></app-new-personnel>
+  }
+  @if(isRemovingPersonnel){
+    <app-remove-personnel 
+      (cancelRemoving)="onCancelRemoving()" 
+      (confirmRemoving)="onConfirmRemoveConfirmation($event)"
+      [isShowWarningBoxOnRemove]="isShowWarningBoxOnRemove">
+    </app-remove-personnel>
+  }
+  @if(isShowWarningBoxAfterAdd){
+    <app-warning-box 
+      (okayWarning)="onOkayWarning()" 
+      [message]="successfulMessage" 
+      [explanation]="explanationWarningBoxAfterAdd">
+    </app-warning-box>
+  }
+  @if(isShowWarningBoxAfterRemove){
+    <app-warning-box 
+      (okayWarning)="onOkayWarning()" 
+      [message]="successfulMessage" 
+      [explanation]="explanationWarningBoxAfterRemove">
+    </app-warning-box>
+  }
+  @if(isShowWarningBoxOnUpdating){
+    <app-warning-box 
+      (okayWarning)="onOkayWarning()" 
+      [message]="messageWarningBoxOnUpdating" 
+      [explanation]="explanationWarningBoxOnUpdating">
+    </app-warning-box>
+  }
+  @if(isUpdatingPersonnel){
+    <app-update-personnel 
+      (update)="onFinalUpdatePersonnel($event)" 
+      (cancel)="onCancelUpdating()" 
+      [personnel]="personnelDetailsapp">
+    </app-update-personnel>
+  }
+  @if(isShowWarningAfterUpdate){
+    <app-warning-box 
+      (okayWarning)="onOkayWarning()" 
+      [message]="successfulMessage" 
+      [explanation]="explanationWarningBoxAfterUpdate">
+    </app-warning-box>
+  }
+</section>

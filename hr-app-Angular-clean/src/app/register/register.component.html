@@ -1,0 +1,39 @@
+<form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="register-form">
+    <h2>Register</h2>
+
+    <label for="email">Email</label>
+    <input id="email" type="email" formControlName="email" />
+    @if(email.invalid && email.touched) {
+        @if(email.errors?.["emailTaken"]){
+            <div class="error">This email is already taken</div>            
+        }
+        @else {
+            <div class="error">Valid email is required</div>            
+        }
+    }
+
+    <label for="password">Password</label>
+    <input id="password" type="password" formControlName="password" />
+    @if (password.invalid && password.touched) {
+        <div class="error">Password must be at least 5 characters</div>
+    }
+
+    <label for="confirmPassword">Confirm Password</label>
+    <input id="confirmPassword" type="password" formControlName="confirmPassword" />
+    @if ((confirmPassword.invalid && confirmPassword.touched) || registerForm.hasError('passwordsMismatch')) {
+        <div class="error">Passwords must match</div>
+    }
+
+    <label>
+        <input type="checkbox" formControlName="terms" />
+        I agree to the Terms
+    </label>
+    @if (terms.invalid && terms.touched) {
+        <div class="error">You must agree to the terms</div>
+    }
+    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+</form> 
+<button type="button" class="back-button" (click)="goToLogin()">Return to Login</button>
+@if(isShowRegisteredMessage){
+    <app-warning-box [message]="messageRegistered" [explanation]="explanationRegistered" (okayWarning)="onOkay()"></app-warning-box>
+}

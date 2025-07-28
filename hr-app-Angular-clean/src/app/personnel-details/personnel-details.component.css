@@ -1,0 +1,40 @@
+#personel-infos {
+  background-color: #9965dd;
+  padding: 1rem;
+  border-radius: 8px;
+  max-height: 45vh;
+  overflow: auto;
+  background-color: #3a2c54;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+h1 {
+    margin: 0;
+    width: 60%;
+    text-wrap: balance;
+    color: mediumslateblue;
+}
+
+h2 {
+  
+  font-size: 0.9rem;
+  width: 60%;
+  text-wrap: balance;
+}
+
+@media (min-width: 768px) {
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  menu {
+    width: auto;
+  }
+}

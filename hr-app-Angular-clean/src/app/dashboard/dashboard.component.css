@@ -1,0 +1,123 @@
+:root {
+  --primary-bg: #121212;
+  --secondary-bg: #1e1e1e;
+  --highlight-color: #00bcd4;
+  --error-color: #f44336;
+  --text-color: #ffffff;
+  --button-bg: #2c2c2c;
+  --button-hover: #3f3f3f;
+  --border-radius: 12px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+}
+
+header-app {
+  display: block;
+  padding: 1rem 2rem;
+  background-color: var(--secondary-bg);
+  border-bottom: 1px solid #333;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--highlight-color);
+}
+
+main {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+button {
+  background-color: var(--button-bg);
+  color: var(--text-color);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+}
+
+.add-button-container,
+.remove-button-container,
+.update-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.add-button {
+  background-color: #4caf50;
+}
+
+.remove-button {
+  background-color: #f44336;
+}
+
+.update-button {
+  background-color: #2196f3;
+}
+
+.app-warning-box {
+  background-color: #1a1a1a;
+  color: var(--text-color);
+  border: 2px solid var(--highlight-color);
+  padding: 1.5rem;
+  margin: 1rem auto;
+  border-radius: var(--border-radius);
+  max-width: 400px;
+  text-align: center;
+}
+
+.app-warning-box p {
+  color: #bbbbbb;
+}
+
+.app-warning-box .ok-btn {
+  background-color: var(--highlight-color);
+  color: #000;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  background-color: var(--secondary-bg);
+  color: var(--text-color);
+  border: 1px solid #444;
+  border-radius: var(--border-radius);
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.error {
+  color: var(--error-color);
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+app-personnel-details,
+app-personnel-list,
+app-new-personnel,
+app-remove-personnel,
+app-update-personnel {
+  display: block;
+  background-color: var(--secondary-bg);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  border: 1px solid #333;
+}
